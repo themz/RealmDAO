@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RealmDAO_Example' do
+  pod 'RealmDAO', :path => '../'
+
+  target 'RealmDAO_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
