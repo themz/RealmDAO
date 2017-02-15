@@ -13,7 +13,7 @@ import RealmSwift
  Класс реализует шаблон DAO для работы с базой данных Realm
  */
 
-class RealmDAO<Entity, Entry: Object> {
+public class RealmDAO<Entity, Entry: Object> {
     private let translator: RealmDAOTranslator<Entity, Entry>
     
     /**
@@ -25,11 +25,11 @@ class RealmDAO<Entity, Entry: Object> {
      - Returns: Реализация DAO для конкретного сервиса
      - Remark: Класс Entry должен быть унаследован от Realm Object
      */
-    init(translator: RealmDAOTranslator<Entity, Entry>) {
+    public init(translator: RealmDAOTranslator<Entity, Entry>) {
         self.translator = translator
     }
     
-    func persist(_ entity: Entity) -> Bool {
+    public func persist(_ entity: Entity) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
@@ -41,7 +41,7 @@ class RealmDAO<Entity, Entry: Object> {
         return true
     }
     
-    func persist(_ entities: [Entity]) -> Bool {
+    public func persist(_ entities: [Entity]) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
@@ -53,17 +53,17 @@ class RealmDAO<Entity, Entry: Object> {
         return true
     }
     
-    func read(id: String) -> Entity? {
+    public func read(id: String) -> Entity? {
         let realm = try! Realm()
         return try! translator.toEntity(entry: realm.object(ofType: Entry.self, forPrimaryKey: id)!)
     }
     
-    func read() -> [Entity] {
+    public func read() -> [Entity] {
         let realm = try! Realm()
         return translator.toEntities(entries: Array(realm.objects(Entry.self)))
     }
     
-    func erase(id: String) -> Bool {
+    public func erase(id: String) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
@@ -75,7 +75,7 @@ class RealmDAO<Entity, Entry: Object> {
         return true
     }
     
-    func erase() -> Bool {
+    public func erase() -> Bool {
         do {
             let realm = try Realm()
             try realm.write {

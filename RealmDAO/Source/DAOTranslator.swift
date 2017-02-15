@@ -15,7 +15,7 @@ import Foundation
  Entry - сущность в БД
  
  */
-protocol DAOTranslator {
+public protocol DAOTranslator {
     ///Определяем в классе или структуре
     associatedtype Entity
     associatedtype Entry

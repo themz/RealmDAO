@@ -10,8 +10,10 @@ import Foundation
 import RealmSwift
 
 open class RealmDAOTranslator<EntityType, EntryType: Object>: DAOTranslator {
-    typealias Entity = EntityType
-    typealias Entry = EntryType
+    public typealias Entity = EntityType
+    public typealias Entry = EntryType
+    
+    public init() {}
     
     open func toEntity(entry: EntryType) throws -> EntityType {
         throw DAOError.subclassOverrideNecessary
