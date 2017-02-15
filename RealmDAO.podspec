@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'RealmDAO/Classes/*.swift'
+  s.source_files = 'RealmDAO/Source/*.swift'
 
   # s.resource_bundles = {
   #   'RealmDAO' => ['RealmDAO/Assets/*.png']
