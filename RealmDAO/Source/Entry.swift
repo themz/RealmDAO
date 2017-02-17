@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 open class Entry: Object {
-    dynamic var id: String = ""
+    open dynamic var id: String = ""
     
     override open class func primaryKey() -> String? {
         return "id"
