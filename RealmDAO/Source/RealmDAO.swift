@@ -27,9 +27,9 @@ public class RealmDAO<Entity, Entry: Object> {
      - Returns: Реализация DAO для конкретного сервиса
      - Remark: Класс Entry должен быть унаследован от Realm Object
      */
-    public init(translator: RealmDAOTranslator<Entity, Entry>, key: String? = nil) {
+    public init(translator: RealmDAOTranslator<Entity, Entry>, key: Data? = nil) {
         self.translator = translator
-        self.key = key?.data(using: .ascii)
+        self.key = key
     }
     
     public func persist(_ entity: Entity) -> Bool {
